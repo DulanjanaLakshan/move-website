@@ -1,4 +1,3 @@
-// app/pages/home/components/MovieRow.tsx
 import {
   Carousel,
   CarouselContent,
@@ -6,30 +5,40 @@ import {
 } from "@/components/ui/carousel";
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import moviesData from "@/data/movies.json";
-import { Movie } from "@/types/Movie";
+import { mediaList } from "@/data/MovieData";
 import { useMovieContext } from "@/app/context/MovieContext";
 import MovieCard from "./MovieCard";
 
-const MovieRow = () => {
-  const movies: Movie[] = moviesData;
+interface MovieRowProps {
+  title?: string;
+  subtitle?: string;
+  data?: typeof mediaList;
+}
+
+const MovieRow = ({ 
+  title = "Trending Now", 
+  subtitle = "Click on any movie to set as featured",
+  data = mediaList 
+}: MovieRowProps) => {
   const { setFeaturedMovie } = useMovieContext();
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   );
 
-  const handleMovieClick = (movie: Movie) => {
+  const handleMovieClick = (movie: typeof mediaList[0]) => {
     setFeaturedMovie(movie);
   };
+
+  const trendingMovies = data.filter(movie => movie.isTrending);
 
   return (
     <div className="pb-6 md:pb-8 lg:pb-10">
       <div className="mb-4 px-4 md:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-white">
-          Trending Now
+          {title}
         </h2>
         <p className="text-white/70 mt-2 text-sm md:text-base">
-          Click on any movie to set as featured
+          {subtitle}
         </p>
       </div>
       <div className="w-full">
@@ -43,7 +52,7 @@ const MovieRow = () => {
             plugins={[plugin.current]}
           >
             <CarouselContent className="-ml-2 sm:-ml-3 md:-ml-4">
-              {movies.map((movie: Movie) => (
+              {trendingMovies.map((movie) => (
                 <CarouselItem
                   key={movie.id}
                   className="pl-2 sm:pl-3 md:pl-4 

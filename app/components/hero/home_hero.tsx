@@ -1,46 +1,63 @@
 import React from "react";
-
 import { Play, Info, Star, Clock, Calendar } from "lucide-react";
-import { useMovieContext } from "@/app/context/MovieContext";
+import { Media } from "@/data/MovieData";
 
-const HomeHero = () => {
-  const { featuredMovie } = useMovieContext();
+interface HomeHeroProps {
+  movie?: Media | null;
+}
+
+const HomeHero = ({ movie }: HomeHeroProps) => {
+  const releaseYear = movie?.releaseDate ? new Date(movie.releaseDate).getFullYear() : "2024";
+  const durationHours = movie?.duration ? Math.floor(movie.duration / 60) : 2;
+  const durationMinutes = movie?.duration ? movie.duration % 60 : 28;
+  const formattedDuration = `${durationHours}h ${durationMinutes}m`;
+  const rating = movie?.rating ? Math.round(movie.rating * 10) / 10 : 8.5;
+
   return (
     <div className="flex-1 flex flex-col justify-center px-4 md:px-6 lg:px-8 max-w-4xl">
       <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">
-        {featuredMovie?.title || "Featured Movie"}
+        {movie?.title || "Featured Movie"}
       </h1>
 
       <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-6 md:mb-8">
         <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
           <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-          <span className="text-white font-semibold text-lg">8.5/10</span>
+          <span className="text-white font-semibold text-lg">{rating}/10</span>
         </div>
         <div className="flex items-center gap-2">
           <Calendar className="w-5 h-5 text-white/70" />
-          <span className="text-white/80 text-lg">2024</span>
+          <span className="text-white/80 text-lg">{releaseYear}</span>
         </div>
         <div className="flex items-center gap-2">
           <Clock className="w-5 h-5 text-white/70" />
-          <span className="text-white/80 text-lg">2h 28m</span>
+          <span className="text-white/80 text-lg">{formattedDuration}</span>
         </div>
         <div className="flex flex-wrap gap-2">
-          <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm">
-            Action
-          </span>
-          <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm">
-            Adventure
-          </span>
-          <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm">
-            Sci-Fi
-          </span>
+          {movie?.genres?.slice(0, 3).map((genre) => (
+            <span 
+              key={genre.id}
+              className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm"
+            >
+              {genre.name}
+            </span>
+          ))}
+          {(!movie?.genres || movie.genres.length === 0) && (
+            <>
+              <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm">
+                Action
+              </span>
+              <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm">
+                Adventure
+              </span>
+              <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm">
+                Sci-Fi
+              </span>
+            </>
+          )}
         </div>
       </div>
       <p className="text-white/90 text-lg md:text-xl mb-8 md:mb-10 leading-relaxed max-w-3xl drop-shadow">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel rem optio
-        iste, reiciendis explicabo, neque adipisci suscipit non tempora
-        repellendus aspernatur quasi sequi dicta? Vero veniam repellat eaque
-        expedita alias. An epic adventure that will take you beyond imagination.
+        {movie?.overview || "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel rem optio iste, reiciendis explicabo, neque adipisci suscipit non tempora repellendus aspernatur quasi sequi dicta? Vero veniam repellat eaque expedita alias. An epic adventure that will take you beyond imagination."}
       </p>
       <div className="flex flex-wrap gap-4 md:gap-6 mb-10 md:mb-12">
         <button className="group flex items-center gap-3 bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-xl hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
@@ -80,21 +97,31 @@ const HomeHero = () => {
           Starring
         </h3>
         <div className="flex flex-wrap gap-2 md:gap-4">
-          {[
-            "Chris Evans",
-            "Scarlett Johansson",
-            "Robert Downey Jr.",
-            "Mark Ruffalo",
-          ].map((actor) => (
-            <div
-              key={actor}
-              className="px-3 py-2 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-colors duration-200 cursor-pointer"
-            >
-              <span className="text-white/90 text-sm md:text-base">
-                {actor}
-              </span>
-            </div>
-          ))}
+          {movie?.cast && movie.cast.length > 0 ? (
+            movie.cast.slice(0, 4).map((actor) => (
+              <div
+                key={actor.id}
+                className="px-3 py-2 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+              >
+                <span className="text-white/90 text-sm md:text-base">
+                  {actor.name}
+                </span>
+              </div>
+            ))
+          ) : (
+            <>
+              {["Chris Evans", "Scarlett Johansson", "Robert Downey Jr.", "Mark Ruffalo"].map((actor) => (
+                <div
+                  key={actor}
+                  className="px-3 py-2 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                >
+                  <span className="text-white/90 text-sm md:text-base">
+                    {actor}
+                  </span>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </div>
