@@ -10,14 +10,14 @@ import { useMovieContext } from "@/app/context/MovieContext";
 import MovieCard from "./MovieCard";
 
 interface MovieRowProps {
-  title?: string;
-  subtitle?: string;
+  title: string | null;
+  subtitle: string | null;
   data?: typeof mediaList;
 }
 
 const MovieRow = ({ 
-  title = "Trending Now", 
-  subtitle = "Click on any movie to set as featured",
+  title,
+  subtitle,
   data = mediaList 
 }: MovieRowProps) => {
   const { setFeaturedMovie } = useMovieContext();

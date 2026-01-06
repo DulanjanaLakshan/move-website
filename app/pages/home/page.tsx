@@ -9,7 +9,9 @@ export default function HomePage() {
   return (
     <div className="h-full flex flex-col">
       <HomeHero movie={featuredMovie} />
-      <MovieRow />
+      <MovieRow title = "Trending Now" subtitle = "Click on any movie to set as featured"/>
+      <MovieRow title = "Cartoons " subtitle = "Click on any movie to set as featured"/>
+      <MovieRow title = "Sinhala Movies" subtitle = "Click on any movie to set as featured"/>
     </div>
   );
 }
