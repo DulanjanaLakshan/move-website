@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "title": "Inception",
+    "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "rating": 8.8,
+    "backdrop": "https://static.kion.ru/content/mts/movie/70008567/posters/HORIZONTAL_633a7630f2ef11d8f606122723cd6afa.webp",
+    "poster": "https://static.kion.ru/content/mts/movie/70008567/posters/HORIZONTAL_633a7630f2ef11d8f606122723cd6afa.webp"
+  },
+  {
+    "id": "2",
+    "title": "The Dark Knight",
+    "overview": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "rating": 9.0,
+    "backdrop": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1z90RV.img?w=2000&h=1000&m=4&q=79",
+    "poster": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1z90RV.img?w=2000&h=1000&m=4&q=79"
+  },
+  {
+    "id": "3",
+    "title": "Interstellar",
+    "overview": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "rating": 8.6,
+    "backdrop": "https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2832007/4BkMacDPepKaracama4g.jpg",
+    "poster": "https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2832007/4BkMacDPepKaracama4g.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Spider-Man: No Way Home",
+    "overview": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other universes start to appear.",
+    "rating": 8.5,
+    "backdrop": "https://images.iptv.rt.ru/images/cau4n9bir4ssllu2ehqg.jpg",
+    "poster": "https://images.iptv.rt.ru/images/cau4n9bir4ssllu2ehqg.jpg"
+  },
+  {
+    "id": "5",
+    "title": "The Matrix Resurrections",
+    "overview": "Return to a world of two realities: one, everyday life; the other, what lies behind it. To truly know oneself, one must choose to free the mind.",
+    "rating": 7.2,
+    "backdrop": "https://www.eldorado.ru/storage/resize/w794/publication/0/42/SxUzVbhSzBhMPgW0FnkBi9KaLEQJUYF5GPCSyHjr.jpeg?utm_source=yandex&utm_medium=organic&utm_campaign=yandex&utm_referrer=yandex",
+    "poster": "https://www.eldorado.ru/storage/resize/w794/publication/0/42/SxUzVbhSzBhMPgW0FnkBi9KaLEQJUYF5GPCSyHjr.jpeg?utm_source=yandex&utm_medium=organic&utm_campaign=yandex&utm_referrer=yandex"
+  },
+  {
+    "id": "6",
+    "title": "Avatar: The Way of Water",
+    "overview": "Jake Sully lives with his newfound family formed on the planet of Pandora. Once a familiar threat returns, Jake must fight a difficult war for the survival of his people.",
+    "rating": 7.8,
+    "backdrop": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1LO5ph.img?w=1200&h=675&m=4&q=100",
+    "poster": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1LO5ph.img?w=1200&h=675&m=4&q=100"
+  },
+  {
+    "id": "7",
+    "title": "Guardians of the Galaxy Vol. 3",
+    "overview": "The Guardians must fight to keep their newfound family together as they unravel the mysteries of the cosmos.",
+    "rating": 8.0,
+    "backdrop": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/02/guardians-of-the-galaxy-vol-3-rocket-sad-ending.jpg",
+    "poster": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/02/guardians-of-the-galaxy-vol-3-rocket-sad-ending.jpg"
+  },
+  {
+    "id": "8",
+    "title": "Everything Everywhere All At Once",
+    "overview": "An aging Chinese immigrant is swept up in an insane adventure, where she alone can save existence by connecting with the lives she could have led.",
+    "rating": 8.6,
+    "backdrop": "https://www.gazeta.uz/media/img/2023/03/1qMQn416786867442411_l.jpg",
+    "poster": "https://www.gazeta.uz/media/img/2023/03/1qMQn416786867442411_l.jpg"
+  }
+]
